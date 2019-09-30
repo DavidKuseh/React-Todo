@@ -3,36 +3,21 @@
 
 import React from 'react';
 import Todo from '../TodoComponents/Todo';
-import TodoForm from '../TodoComponents/TodoForm';
+// import TodoForm from '../TodoComponents/TodoForm';
 
-export default class TodoList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            todo: [{task:'', id: Date.now(), completed: false}]
-        }
-    }
-    addTodo(){
-        return(
-            this.setState(currentState =>({
-               todo: currentState.todo.map(item => { 
-                   return { task: item.task, id: item.id, completed: false}
-            })
-          }))
-        )
-    }
+const TodoList = props => {
+    return (
+        <div className='todo-list'>
+            {props.todo.map(tasks => (
+                <Todo key={tasks.id} tasks={tasks} toggleTask={props.toggleTask} />
+            ))}
+            <button className="clear-btn" onClick={props.clearCompleted}>
+                Clear Completed
+            </button>
+        </div>
+    );
+};
 
-
-    render() {
-        const todo = this.state;
-        return (
-            <div>
-               <Todo todo={todo}/> 
-               <TodoForm />
-            </div>
-            
-        )
-    }
-}
+export default TodoList;
 
 

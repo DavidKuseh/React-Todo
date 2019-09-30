@@ -1,20 +1,16 @@
 import React from 'react';
 
-export default class Todo extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            todos: [],
-        }
-    }
+const Todo = props => {
+    return (
+        <div  
+            className={`tasks${props.tasks.completed ? " completed" : ""}`}
+            onClick={() => {
+                props.toggleTask(props.tasks.id);
+            }}
+        >
+            <p>{props.tasks.task}</p>
+        </div>         
+    );
+};
 
-    render() {
-        return (
-            <div>
-                <p>{this.state.todo}</p>
-            </div>
-        )
-    }
-}
-
-
+export default Todo;
