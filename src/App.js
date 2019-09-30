@@ -13,7 +13,7 @@ const todo = [
     id: 2,
     completed: false
   }
-]
+];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -69,13 +69,12 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <TodoForm addTask={this.addTask}/>
         <TodoList 
           todo={this.state.todo}
-          toggleTask={this.state.toggleTask}
+          toggleTask={this.toggleTask}
           clearCompleted={this.clearCompleted}
         />
-        <TodoForm addTask={this.addTask}/>
-        {/* <Todo /> */}
       </div>
     );
   }
