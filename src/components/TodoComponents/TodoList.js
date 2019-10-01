@@ -3,7 +3,6 @@
 
 import React from 'react';
 import Todo from '../TodoComponents/Todo';
-// import TodoForm from '../TodoComponents/TodoForm';
 
 const TodoList = props => {
     return (
